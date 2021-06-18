@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Libary</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Online Library</h1>
+    </header>
+    <main>
+      <div class="openBtn">
+        <button class="openButton" onclick="openForm()">Add a Book</button>
+      </div>
+      <div class="newAuthorPopup">
+        <div class="formPopup" id="popupForm">
+          <form action="/action_page.php" class="formContainer">
+            <h2>Add Book</h2>
+            <label for="author"><b>Author</b></label>
+            <input type="text" placeholder="Enter Author" name="author" required>
+
+            <label for="title"><b>Title</b></label>
+            <input type="text" placeholder="Enter Title" name="title" required>
+
+            <label for="pages"><b>Number of Pages</b></label>
+            <input type="text" placeholder="# of Pages" name="pages" required>
+
+            <label for="isRead"><b>Read</b></label>
+            <input type="radio" name="read" value="read" required>
+            <input type="radio" name="read" value="not read" required>
+
+            <button type="submit" class="btn">Submit</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+  </body>
+</html>
