@@ -15,22 +15,23 @@
       </div>
       <div class="newAuthorPopup">
         <div class="formPopup" id="popupForm">
-          <form action="/action_page.php" class="formContainer">
+          <form class="formContainer" id="form">
             <h2>Add Book</h2>
             <label for="author"><b>Author</b></label>
-            <input type="text" placeholder="Enter Author" name="author" required>
+            <input id="author" type="text" placeholder="Enter Author" name="author" required>
 
             <label for="title"><b>Title</b></label>
-            <input type="text" placeholder="Enter Title" name="title" required>
+            <input id="title" type="text" placeholder="Enter Title" name="title" required>
 
             <label for="pages"><b>Number of Pages</b></label>
-            <input type="text" placeholder="# of Pages" name="pages" required>
+            <input id="pages" type="text" placeholder="# of Pages" name="pages" required>
 
             <label for="isRead"><b>Read</b></label>
-            <input type="radio" name="read" value="read" required>
-            <input type="radio" name="read" value="not read" required>
+            <input id="read" type="radio" name="read" value="Read" required>
+            <label for="isNotRead"><b>Not Read</b></label>
+            <input id="read" type="radio" name="read" value="Not Read" required>
 
-            <button type="submit" class="btn">Submit</button>
+            <button type="submit" class="btn" onclick="addBookToLibrary()">Submit</button>
             <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
           </form>
         </div>
