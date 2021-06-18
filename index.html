@@ -10,18 +10,20 @@
       <h1>Online Library</h1>
     </header>
     <main>
+      <div id="bookContainer">
+      </div>
       <div class="openBtn">
         <button class="openButton" onclick="openForm()">Add a Book</button>
       </div>
-      <div class="newAuthorPopup">
+      <div class="newBookPopup">
         <div class="formPopup" id="popupForm">
           <form class="formContainer" id="form">
             <h2>Add Book</h2>
-            <label for="author"><b>Author</b></label>
-            <input id="author" type="text" placeholder="Enter Author" name="author" required>
-
             <label for="title"><b>Title</b></label>
             <input id="title" type="text" placeholder="Enter Title" name="title" required>
+
+            <label for="author"><b>Author</b></label>
+            <input id="author" type="text" placeholder="Enter Author" name="author" required>
 
             <label for="pages"><b>Number of Pages</b></label>
             <input id="pages" type="text" placeholder="# of Pages" name="pages" required>
@@ -31,15 +33,16 @@
             <label for="isNotRead"><b>Not Read</b></label>
             <input id="read" type="radio" name="read" value="Not Read" required>
 
-            <button type="submit" class="btn" onclick="addBookToLibrary()">Submit</button>
+            <button type="submit" class="btn" onclick="checkForm()">Submit</button>
             <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
           </form>
         </div>
       </div>
     </main>
     <footer>
-
-    </footer>
+			<div class="left">Created by Aaron Matsumoto</div>
+			<div class="right"><a href="https://github.com/aaronymatsumoto" target="_blank">Github</a></div>
+		</footer>
 
 
     <script src="script.js"></script>
