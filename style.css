@@ -1,9 +1,80 @@
 * {
 	box-sizing: border-box;
+  margin: 0;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
 }
+
+h1 {
+  display: flex;
+  padding: 30px;
+  font-size: 50px;
+  background-color: #f2f2f2;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f2f2f2;
+  align-items: center;
+	flex-wrap: wrap;
+	padding: 10px 20px;
+  margin-top: auto;
+  flex-direction: row;
+}
+
+footer .left {
+  font-size: 13px;
+	justify-content: flex-start;
+}
+
+footer .right {
+	justify-content: flex-end;
+}
+
+footer a {
+  font-size: 13px;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  color: rgb(70, 70, 70);
+}
+
 .openBtn {
 	display: flex;
-	justify-content: left;
+  align-self: flex-end;
+}
+
+.openButton {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(66,133,244);
+  border-radius: 50%;
+  box-shadow: 0 6px 10px 0 #666;
+  transition: all 0.1s ease-in-out;
+  font-size: 35px;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  position: fixed;
+  align-self: flex-end;
+  background-color: blue;
+}
+
+.openButton:hover {
+  box-shadow: 0 6px 14px 0 #666;
+  transform: scale(1.05);
 }
 
 .newBookPopup {
@@ -25,4 +96,32 @@
 	max-width: 300px;
 	padding: 20px;
 	background-color: #fff;
+}
+
+.bookContainer {
+  display: flex;
+}
+
+.book {
+  flex-basis: 20%;
+  border: 1px solid gray;
+  padding: 10px;
+  margin: 20px;
+}
+
+.bookTitle {
+  padding: 2px;
+  font-size: 30px;
+}
+
+.bookAuthor {
+  padding: 2px;
+}
+
+.bookPages {
+  padding: 2px;
+}
+
+.bookRead {
+  padding: 2px;
 }

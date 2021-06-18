@@ -11,7 +11,6 @@ function closeForm() {
 }
 
 let myLibrary = [];
-let myBooks = [];
 
 function Book(title, author, pages, read){
   this.title = title;
@@ -19,7 +18,7 @@ function Book(title, author, pages, read){
   this.pages = pages;
   this.read = read;
   this.info = function () {
-    return `${this.title}\nby ${this.author}\n${this.pages} pages\n${this.read}`;
+    return `<strong>${this.title}</strong><br><strong>by</strong> ${this.author}<br>${this.pages} pages<br>${this.read}`;
   };
 }
 
@@ -64,14 +63,35 @@ function removeAll() {
 function displayBook() {
   const bookContainer = document.getElementById("bookContainer");
   for (let i = 0; i < myLibrary.length; i++) {
-    myBooks[i] = document.createElement("div");
-    myBooks[i].classList= "book";
-    myBooks[i].innerHTML = myLibrary[i].info();
-    bookContainer.appendChild(myBooks[i]);
+
+    let newContainerDiv = document.createElement("div");
+    newContainerDiv.classList = "book";
+    newContainerDiv.id = `book${i}`;
+    //newContainerDiv.innerHTML = myLibrary[i].info();
+    bookContainer.appendChild(newContainerDiv);
+    const bookDetails = document.getElementById(`book${i}`);
+    let titleDiv = document.createElement("div");
+    titleDiv.classList = "bookTitle";
+    titleDiv.innerHTML = myLibrary[i].title;
+    let authorDiv = document.createElement("div");
+    authorDiv.classList = "bookAuthor";
+    authorDiv.innerHTML = myLibrary[i].author;
+    let pagesDiv = document.createElement("div");
+    pagesDiv.classList = "bookPages";
+    pagesDiv.innerHTML = myLibrary[i].pages;
+    let readDiv = document.createElement("div");
+    readDiv.classList = "bookRead";
+    readDiv.innerHTML = myLibrary[i].read;
+
+    bookDetails.appendChild(titleDiv);
+    bookDetails.appendChild(authorDiv);
+    bookDetails.appendChild(pagesDiv);
+    bookDetails.appendChild(readDiv);
   }
   return;
 }
 
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', '295', 'Not Read');
 myLibrary.push(theHobbit);
+displayBook()
 
