@@ -1,7 +1,7 @@
 * {
 	box-sizing: border-box;
   margin: 0;
-  font-size: 20px;
+  font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -86,24 +86,34 @@ a:hover {
 .formPopup {
 	display: none;
 	position: fixed;
-	left: 45%;
-	top: 5%;
+	left: 50%;
+	top: 30%;
 	transform: translate(-50%, 5%);
 	border: 3px solid #999999;
 	z-index: 9;
 }
 .formContainer {
-	max-width: 300px;
+	max-width: 250px;
 	padding: 20px;
 	background-color: #fff;
 }
 
+.bookInput {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
+
 .bookContainer {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .book {
-  flex-basis: 20%;
+  flex-basis: 22%;
+  max-width: 700px;
+  min-width: 400px; 
   border: 1px solid gray;
   padding: 10px;
   margin: 20px;
@@ -111,10 +121,11 @@ a:hover {
 
 .bookTitle {
   padding: 2px;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .bookAuthor {
+  margin-top: auto;
   padding: 2px;
 }
 
@@ -123,5 +134,48 @@ a:hover {
 }
 
 .bookRead {
-  padding: 2px;
+  display: flex;
+  align-items: center;
+  padding-left: 2px;
+}
+
+.readSwitch {
+  background-color: grey;
+  width: 50px;
+  height: 26px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  margin-left: auto;
+}
+
+.readSwitch-active {
+  background-color: blue;
+  width: 50px;
+  height: 26px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.readStatus {
+  display: none;
+}
+
+.slider {
+  height: 1.15em;
+  width: 1.15em;
+  background-color: white;
+  border-radius: 12px;
+  margin: 4px;
+}
+
+.readStatus:checked + .readSwitch {
+  background-color: green;
+}
+
+.readStatus:checked + .readSwitch > .slider {
+  align-self: flex-end;
 }

@@ -22,6 +22,7 @@ function Book(title, author, pages, read){
   };
 }
 
+// does this upon form creation
 function checkForm() {
   addBookToLibrary();
   let myLibrarySize = myLibrary.length - 1;
@@ -47,8 +48,10 @@ function addBookToLibrary() {
   const author = document.getElementById("author");
   const title = document.getElementById("title");
   const pages = document.getElementById("pages");
-  const read = document.getElementById("read");
-  const newBook = new Book(title.value, author.value, pages.value, read.value);
+  const getSelectedValue = document.querySelector(   
+    'input[name="read"]:checked');
+  const read = getSelectedValue.value;
+  const newBook = new Book(title.value, author.value, pages.value, read);
   myLibrary.push(newBook);
 }
 
@@ -59,11 +62,27 @@ function removeAll() {
   }
 }
 
+function checkReadStatus(read, id){
+  if(read === 'Read') {
+    document.getElementById(id).checked = true;
+  }
+  else {
+    document.getElementById(id).checked = false;
+  }
+}
+
+function updateReadStatus(id) {
+  const getStatus = document.getElementById(id);
+  console.log(getStatus);
+  
+
+}
+
 // Loops through the array and displays each book on the page
 function displayBook() {
   const bookContainer = document.getElementById("bookContainer");
+  let readStatus = '';
   for (let i = 0; i < myLibrary.length; i++) {
-
     let newContainerDiv = document.createElement("div");
     newContainerDiv.classList = "book";
     newContainerDiv.id = `book${i}`;
@@ -75,23 +94,31 @@ function displayBook() {
     titleDiv.innerHTML = myLibrary[i].title;
     let authorDiv = document.createElement("div");
     authorDiv.classList = "bookAuthor";
-    authorDiv.innerHTML = myLibrary[i].author;
+    authorDiv.innerHTML = `<span style="font-size:14  px">by</span> ${myLibrary[i].author}`;
     let pagesDiv = document.createElement("div");
     pagesDiv.classList = "bookPages";
-    pagesDiv.innerHTML = myLibrary[i].pages;
+    pagesDiv.innerHTML = `${myLibrary[i].pages} pages`;
     let readDiv = document.createElement("div");
     readDiv.classList = "bookRead";
-    readDiv.innerHTML = myLibrary[i].read;
-
+    readStatus = `${myLibrary[i].read}`;
+    readDiv.innerHTML = `${readStatus}
+    <input type="checkbox" class="readStatus" id="readStatus${i}" onclick="updateReadStatus('readStatus${i}')">
+    <label for="readStatus${i}" class="readSwitch">
+      <div class="slider"></div>           
+    </label>`;
     bookDetails.appendChild(titleDiv);
     bookDetails.appendChild(authorDiv);
     bookDetails.appendChild(pagesDiv);
     bookDetails.appendChild(readDiv);
+    checkReadStatus(readStatus, `readStatus${i}`);
+
   }
   return;
 }
 
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', '295', 'Not Read');
+const theHobbit2 = new Book('The HobbitTWO', 'Tolkien', '500', 'Read');
 myLibrary.push(theHobbit);
+myLibrary.push(theHobbit2);
 displayBook()
 
