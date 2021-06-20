@@ -53,7 +53,8 @@ a:hover {
 
 .openBtn {
 	display: flex;
-  align-self: flex-end;
+  justify-content: flex-end;
+  margin-right: 20px;
 }
 
 .openButton {
@@ -68,8 +69,10 @@ a:hover {
   text-align: center;
   line-height: 50px;
   position: fixed;
-  align-self: flex-end;
-  background-color: blue;
+  bottom: 0;
+  right: 0;
+  margin-right: 25px;
+  margin-bottom: 60px;
 }
 
 .openButton:hover {
