@@ -12,14 +12,15 @@ function closeForm() {
 
 let myLibrary = [];
 
+// book constructor
 function Book(title, author, pages, read){
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
-  this.info = function () {
+  /*this.info = function () {
     return `<strong>${this.title}</strong><br><strong>by</strong> ${this.author}<br>${this.pages} pages<br>${this.read}`;
-  };
+  };*/
 }
 
 // does this upon form creation
@@ -38,13 +39,13 @@ function checkForm() {
   return true;
 }
 
+// adds a new book to the library
 function addBookToLibrary() {
   // Stays on the same page for the form after submitting
   const myForm = document.getElementById("form");
   myForm.addEventListener("submit", (e) => {
     e.preventDefault();
   });
-
   const author = document.getElementById("author");
   const title = document.getElementById("title");
   const pages = document.getElementById("pages");
@@ -55,6 +56,7 @@ function addBookToLibrary() {
   myLibrary.push(newBook);
 }
 
+//Removes all the book classes from the page
 function removeAll() {
   const elements = document.getElementsByClassName("book");
   while(elements.length > 0){
@@ -62,6 +64,7 @@ function removeAll() {
   }
 }
 
+//Sets the read id to "checked" depending on if it says 'Read' or not
 function checkReadStatus(read, id){
   if(read === 'Read') {
     document.getElementById(id).checked = true;
@@ -71,10 +74,18 @@ function checkReadStatus(read, id){
   }
 }
 
+// Updates the read status of the library and on the page
 function updateReadStatus(id) {
   const getStatus = document.getElementById(id);
-  console.log(getStatus);
-  
+  const libraryPosition = parseInt(id.slice(-1));
+  if (getStatus.checked){
+    myLibrary[libraryPosition].read = 'Read';
+  }
+  else if (!getStatus.checked){
+    myLibrary[libraryPosition].read = 'Not Read';
+  }
+  removeAll();
+  displayBook();
 
 }
 
@@ -83,10 +94,10 @@ function displayBook() {
   const bookContainer = document.getElementById("bookContainer");
   let readStatus = '';
   for (let i = 0; i < myLibrary.length; i++) {
+    // puts the book in a new book container
     let newContainerDiv = document.createElement("div");
     newContainerDiv.classList = "book";
     newContainerDiv.id = `book${i}`;
-    //newContainerDiv.innerHTML = myLibrary[i].info();
     bookContainer.appendChild(newContainerDiv);
     const bookDetails = document.getElementById(`book${i}`);
     let titleDiv = document.createElement("div");
