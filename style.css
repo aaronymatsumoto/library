@@ -199,9 +199,12 @@ a:hover {
   display: none;
 }
 
-.closeSwitch:hover{
+.closeSwitch:hover {
   color: #F25C66;
   cursor: pointer;
   font-size: 18px;
 }
 
+.blur {
+  filter: blur(5px);
+}

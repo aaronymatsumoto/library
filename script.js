@@ -1,13 +1,10 @@
 function openForm() {
   document.getElementById("popupForm").style.display = "block";
-  
-  //apply blur background when open
+  document.getElementById("bookContainer").classList.add("blur");
 }
 function closeForm() {
   document.getElementById("popupForm").style.display = "none";
-
-  //remove blur background when open
-
+  document.getElementById("bookContainer").classList.remove("blur");
 }
 
 let myLibrary = [];
