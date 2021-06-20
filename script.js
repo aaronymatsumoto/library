@@ -89,6 +89,13 @@ function updateReadStatus(id) {
 
 }
 
+function closeBook(id) {
+  const libraryPosition = parseInt(id.slice(-1));
+  myLibrary.splice(libraryPosition, 1);
+  removeAll();
+  displayBook();
+}
+
 // Loops through the array and displays each book on the page
 function displayBook() {
   const bookContainer = document.getElementById("bookContainer");
@@ -102,7 +109,9 @@ function displayBook() {
     const bookDetails = document.getElementById(`book${i}`);
     let titleDiv = document.createElement("div");
     titleDiv.classList = "bookTitle";
-    titleDiv.innerHTML = myLibrary[i].title;
+    titleDiv.innerHTML = `${myLibrary[i].title}
+    <input type="checkbox" class="close" id="close${i}" onclick="closeBook('close${i}')">
+    <label for="close${i}" class="closeSwitch">X</label>`;
     let authorDiv = document.createElement("div");
     authorDiv.classList = "bookAuthor";
     authorDiv.innerHTML = `<span style="font-size:14  px">by</span> ${myLibrary[i].author}`;

@@ -117,9 +117,11 @@ a:hover {
   border: 1px solid gray;
   padding: 10px;
   margin: 20px;
+  
 }
 
 .bookTitle {
+  display: flex;
   padding: 2px;
   font-size: 25px;
 }
@@ -139,6 +141,11 @@ a:hover {
   padding-left: 2px;
 }
 
+
+.readStatus {
+  display: none;
+}
+
 .readSwitch {
   background-color: grey;
   width: 50px;
@@ -148,6 +155,7 @@ a:hover {
   flex-direction: column;
   justify-content: right;
   margin-left: auto;
+  cursor: pointer;
 }
 
 .readSwitch-active {
@@ -160,9 +168,6 @@ a:hover {
   align-items: flex-end;
 }
 
-.readStatus {
-  display: none;
-}
 
 .slider {
   height: 1.15em;
@@ -179,3 +184,21 @@ a:hover {
 .readStatus:checked + .readSwitch > .slider {
   align-self: flex-end;
 }
+
+
+.closeSwitch{
+  display: flex;
+  justify-content: right;
+  margin-left: auto;
+}
+
+.close {
+  display: none;
+}
+
+.closeSwitch:hover{
+  color: #F25C66;
+  cursor: pointer;
+  font-size: 18px;
+}
+
